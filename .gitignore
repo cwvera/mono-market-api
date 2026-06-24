@@ -1,0 +1,15 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/mono.market/MonoLegal.WebApi/obj
+/mono.market/MonoMarket.Application/obj
+/mono.market/MonoMarket.Commons/obj
+/mono.market/MonoMarket.Domain/obj
+/mono.market/MonoMarket.Infrastructure/obj
+/mono.market/MonoMarket.Tests/bin/Debug/net9.0
+/mono.market/MonoMarket.Tests/obj
+/mono.market/.vs/mono.market
+/.vs
+/mono.market/.vs/ProjectEvaluation
+/mono.market/MonoMarket.WebApi/obj
