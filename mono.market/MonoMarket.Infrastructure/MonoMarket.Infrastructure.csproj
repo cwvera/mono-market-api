@@ -7,8 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MonoMarket.Application\MonoMarket.Application.csproj" />
     <ProjectReference Include="..\MonoMarket.Commons\MonoMarket.Commons.csproj" />
     <ProjectReference Include="..\MonoMarket.Domain\MonoMarket.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="10.0.9" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.9" />
+    <PackageReference Include="MongoDB.Driver" Version="3.9.0" />
+    <PackageReference Include="Polly" Version="8.7.0" />
   </ItemGroup>
 
 </Project>
