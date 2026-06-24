@@ -7,17 +7,8 @@ namespace MonoMarket.WebApi.Middleware;
 /// <summary>
 /// Middleware para manejo centralizado de excepciones y errores de validación.
 /// </summary>
-public class ExceptionHandlingMiddleware
+public class ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
 {
-    private readonly RequestDelegate _next;
-    private readonly ILogger<ExceptionHandlingMiddleware> _logger;
-
-    public ExceptionHandlingMiddleware(RequestDelegate next, ILogger<ExceptionHandlingMiddleware> logger)
-    {
-        _next = next;
-        _logger = logger;
-    }
-
     /// <summary>
     /// Ejecuta el siguiente middleware y captura excepciones para responder en JSON.
     /// </summary>
@@ -27,7 +18,7 @@ public class ExceptionHandlingMiddleware
     {
         try
         {
-            await _next(context);
+            await next(context);
         }
         catch (ValidationException vex)
         {
@@ -42,13 +33,13 @@ public class ExceptionHandlingMiddleware
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error interno inesperado.");
+            logger.LogError(ex, "Error interno inesperado.");
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             context.Response.ContentType = "application/json";
             string[] errors = [ex.Message];
             var payload = new
             {
-                message = $"Error interno inesperado.",
+                message = "Error interno inesperado.",
                 errors = errors.Select(e => new { ErrorMessage = e })
             };
             await context.Response.WriteAsync(JsonSerializer.Serialize(payload));

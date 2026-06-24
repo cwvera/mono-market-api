@@ -18,3 +18,8 @@
 /mono.market/MonoMarket.Domain/bin/Debug/net9.0
 /mono.market/MonoMarket.Infrastructure/bin/Debug/net9.0
 /mono.market/MonoMarket.WebApi/bin/Debug/net9.0
+
+# Variables de entorno con secretos (ver .env.example)
+.env
+.env.*
+!.env.example
