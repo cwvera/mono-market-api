@@ -13,3 +13,8 @@
 /.vs
 /mono.market/.vs/ProjectEvaluation
 /mono.market/MonoMarket.WebApi/obj
+/mono.market/MonoMarket.Application/bin/Debug/net9.0
+/mono.market/MonoMarket.Commons/bin/Debug/net9.0
+/mono.market/MonoMarket.Domain/bin/Debug/net9.0
+/mono.market/MonoMarket.Infrastructure/bin/Debug/net9.0
+/mono.market/MonoMarket.WebApi/bin/Debug/net9.0
