@@ -12,6 +12,18 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+const string AngularDevCorsPolicy = "AngularDevCorsPolicy";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(AngularDevCorsPolicy, policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddControllers();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
@@ -61,6 +73,8 @@ app.UseSwaggerUI(options =>
 });
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+app.UseCors(AngularDevCorsPolicy);
 
 app.UseAuthorization();
 
